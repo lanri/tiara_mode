@@ -25,7 +25,7 @@ class HomeScreen extends StatelessWidget {
               width: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/tiaramode_bg.jpg'),
+                  image: AssetImage('assets/images/tiaramode_bg_comp.webp'),
                   fit: BoxFit.cover,
                 ),
               ),

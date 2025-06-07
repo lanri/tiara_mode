@@ -24,7 +24,7 @@ class _OrderScreenState extends State<OrderScreen> {
       
       // --- IMPORTANT ---
       // Replace with your actual WhatsApp number, including the country code (62 for Indonesia).
-      const businessWhatsAppNumber = '+6281234567890'; 
+      const businessWhatsAppNumber = '+6281370603031'; 
 
       final message = Uri.encodeComponent(
         'Halo Tiara Mode,\n\nSaya $name ($phone) ingin bertanya tentang:\n"$request"\n\nTerima kasih.'
