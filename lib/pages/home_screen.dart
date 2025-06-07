@@ -13,6 +13,12 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // 💠 Tiara Mode Logo
+          Image.asset(
+            'assets/logo.png',
+            width: 120,
+            height: 120,
+          ),
             // Hero section with a welcoming image and message
             Container(
               height: 250,
