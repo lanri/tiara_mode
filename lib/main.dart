@@ -23,7 +23,7 @@ class TiaraModeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tiara Mode',
+      title: 'Tiara Mode Kebaya',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // --- App Theme ---
@@ -145,7 +145,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tiara Mode'),
+        title: const Text('Tiara Mode Kebaya'),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -154,21 +154,21 @@ class HomeScreen extends StatelessWidget {
             Container(
               height: 250,
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: NetworkImage('https://placehold.co/600x400/A9A9A9/FFFFFF?text=Selamat+Datang!'), // Replace with your image
+                  image: AssetImage('assets/images/tiaramode_bg.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
-              child: Container(
-                color: Colors.black.withOpacity(0.3),
-                alignment: Alignment.center,
-                child: Text(
-                  'Jahitan Halus, Gaya Modis',
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white, fontSize: 28),
-                  textAlign: TextAlign.center,
-                ),
-              ),
+              // child: Container(
+              //   color: Colors.black.withOpacity(0.3),
+              //   alignment: Alignment.center,
+              //   child: Text(
+              //     'Jahitan Halus, Gaya Modis',
+              //     style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white, fontSize: 28),
+              //     textAlign: TextAlign.center,
+              //   ),
+              // ),
             ),
             const SizedBox(height: 24),
             // Introduction Text
