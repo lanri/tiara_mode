@@ -82812,7 +82812,7 @@ o.e=!0
 o.L8()
 s=o.mM()?2:3
 break
-case 2:p=A.h1("https://wa.me/+6281234567890?text="+A.Dg(B.Gy,"Halo Tiara Mode,\n\nSaya "+q.e.a.a+" ("+q.f.a.a+') ingin bertanya tentang:\n"'+q.r.a.a+'"\n\nTerima kasih.',B.ac,!1),0,null)
+case 2:p=A.h1("https://wa.me/+6281370603031?text="+A.Dg(B.Gy,"Halo Tiara Mode,\n\nSaya "+q.e.a.a+" ("+q.f.a.a+') ingin bertanya tentang:\n"'+q.r.a.a+'"\n\nTerima kasih.',B.ac,!1),0,null)
 s=7
 return A.V(A.alp(p),$async$re)
 case 7:s=b?4:6
@@ -85804,7 +85804,7 @@ B.Am=new A.ae(48,1/0,48,1/0)
 B.Ao=new A.ae(96,96,96,96)
 B.Ap=new A.ae(0,1/0,56,56)
 B.lO=new A.ae(1/0,1/0,1/0,1/0)
-B.zP=new A.ph("assets/images/tiaramode_bg.jpg",null,null)
+B.zP=new A.ph("assets/images/tiaramode_bg_comp.webp",null,null)
 B.lP=new A.EP(2,"cover")
 B.bR=new A.q3(3,"noRepeat")
 B.c9=new A.n3(1,"low")
