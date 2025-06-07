@@ -18,6 +18,9 @@ jobs:
         with:
           flutter-version: '3.22.3'  # Ensure this matches your project
 
+      - name: Clean previous builds
+        run: flutter clean
+
       - name: Install dependencies
         run: flutter pub get
 
