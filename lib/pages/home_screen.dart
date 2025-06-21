@@ -1,6 +1,13 @@
+/***
+home_screen.dart: edit bg, fix button
+created by @lanri.jait@gmail.com
+last committed by @lanri.jait@gmail.com
+***/
+
 import 'package:flutter/material.dart';
 import 'package:tiara_mode/main.dart';
 import 'package:tiara_mode/pages/portfolio_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   final VoidCallback? onPortfolioTap;
@@ -60,7 +67,8 @@ class HomeScreen extends StatelessWidget {
                   ElevatedButton.icon(
                     icon: const Icon(Icons.photo_library_outlined),
                     label: const Text('Lihat Portfolio Kami'),
-                    onPressed: onPortfolioTap,
+                    onPressed: //onPortfolioTap,
+                        _openInstagram,
                     style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 50)),
                   ),
@@ -119,4 +127,18 @@ void _showMeasurementGuide(BuildContext context) {
       );
     },
   );
+}
+
+void _openInstagram() async {
+  const username = 'mode_tiara'; // your IG username
+  final appUrl = 'instagram://user?username=$username';
+  final webUrl = 'https://www.instagram.com/$username/';
+
+  // Try open Instagram app first
+  if (await canLaunchUrl(Uri.parse(appUrl))) {
+    await launchUrl(Uri.parse(appUrl), mode: LaunchMode.externalApplication);
+  } else {
+    // Fallback to browser
+    await launchUrl(Uri.parse(webUrl), mode: LaunchMode.externalApplication);
+  }
 }
