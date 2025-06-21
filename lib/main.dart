@@ -1,9 +1,16 @@
+/***
+main.dart: edit bg, fix button
+created by @lanri.jait@gmail.com
+last committed by @lanri.jait@gmail.com
+***/
+
 import 'package:flutter/material.dart';
 import 'package:tiara_mode/pages/home_screen.dart';
 import 'package:tiara_mode/pages/order_screen.dart';
 import 'package:tiara_mode/pages/portfolio_screen.dart';
 import 'package:tiara_mode/pages/services_screen.dart';
-
+import 'router.dart';
+import 'dart:html' as html; // for browser URL control
 
 // To make this code work, you need to add the `url_launcher` package.
 // Open your `pubspec.yaml` file and add this line under `dependencies`:
@@ -13,7 +20,7 @@ import 'package:tiara_mode/pages/services_screen.dart';
 //     sdk: flutter
 //   url_launcher: ^6.1.10 # Or the latest version
 //
-// Then run `flutter pub get` in your terminal.
+// Then run `flutter pub get` in your terminal
 
 void main() {
   runApp(const TiaraModeApp());
@@ -43,7 +50,8 @@ class TiaraModeApp extends StatelessWidget {
           background: Color(0xFFF8F7FA),
           surface: Colors.white,
         ),
-        fontFamily: 'Poppins', // A modern and clean font (ensure you add it to pubspec.yaml)
+        fontFamily:
+            'Poppins', // A modern and clean font (ensure you add it to pubspec.yaml)
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           elevation: 1,
@@ -57,8 +65,14 @@ class TiaraModeApp extends StatelessWidget {
           ),
         ),
         textTheme: const TextTheme(
-          headlineSmall: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFF333333)),
-          titleLarge: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Color(0xFF333333)),
+          headlineSmall: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF333333)),
+          titleLarge: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF333333)),
           bodyLarge: TextStyle(fontSize: 16, color: Colors.black87),
           bodyMedium: TextStyle(fontSize: 14, color: Colors.black54),
         ),
@@ -73,7 +87,8 @@ class TiaraModeApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const MainScreen(),
+      onGenerateRoute: generateRoute,
+      initialRoute: '/', // start from here
     );
   }
 }
@@ -81,28 +96,45 @@ class TiaraModeApp extends StatelessWidget {
 // --- Main Screen with Bottom Navigation ---
 // This widget manages the main pages of the app.
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final int initialIndex;
+  const MainScreen({super.key, this.initialIndex = 0});
 
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.initialIndex;
+  }
 
   // List of pages to be displayed.
-  List<Widget> _widgetOptions() =>[
-    HomeScreen(onPortfolioTap: () => _onItemTapped(1)),
-    const PortfolioScreen(),
-    const ServicesScreen(),
-    const OrderScreen(),
-  ];
+  List<Widget> _widgetOptions() => [
+        HomeScreen(onPortfolioTap: () => _onItemTapped(1)),
+        const PortfolioScreen(),
+        const ServicesScreen(),
+        const OrderScreen(),
+      ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  setState(() {
+    _selectedIndex = index;
+    final path = ['/', '/portfolio', '/services', '/order'][index];
+    // Update the URL without reloading the page
+    // Only works on Flutter web
+    if (Uri.base.path != path) {
+      // ignore: undefined_prefixed_name
+      // This updates browser URL bar
+      //import 'dart:html' as html;
+      html.window.history.pushState(null, '', path);
+    }
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {
