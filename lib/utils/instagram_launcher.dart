@@ -1,52 +1,50 @@
 /***
-instagram_launcher.dart: Instagram Launcher module
+instagram_launcher.dart: fix instagram direct
 created by @lanri.jait@gmail.com
-last committed by @
+last committed by @lanri.jait@gmail.com
 ***/
 
-// lib/utils/instagram_launcher.dart
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:android_intent_plus/android_intent.dart';
-import 'package:android_intent_plus/flag.dart';
 
 class InstagramLauncher {
-  static const String username = 'mode_tiara';
+  static const String _username = 'mode_tiara';
+  static final Uri _webUri = Uri.parse('https://www.instagram.com/$_username/');
 
-  static Future<void> openInstagram() async {
-    final instagramAppUrl = 'instagram://user?username=$username';
-    final instagramWebUrl = 'https://www.instagram.com/$username/';
+  static Future<void> openWithSuggestion(BuildContext context) async {
+    // Always open in browser first
+    await launchUrl(_webUri, mode: LaunchMode.externalApplication);
 
-    if (kIsWeb) {
-      await launchUrl(Uri.parse(instagramWebUrl), mode: LaunchMode.externalApplication);
-      return;
-    }
-
-    if (Platform.isAndroid) {
-      final intent = AndroidIntent(
-        action: 'action_view',
-        data: instagramWebUrl,
-        package: 'com.instagram.android',
-        flags: <int>[Flag.FLAG_ACTIVITY_NEW_TASK],
+    if (Platform.isAndroid || Platform.isIOS) {
+      await Future.delayed(const Duration(milliseconds: 800)); // slight delay
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Gunakan Aplikasi Instagram'),
+          content: const Text(
+            'Untuk pengalaman terbaik dan membuka langsung ke akun kami, gunakan aplikasi Instagram resmi. '
+            'Jika Anda melihat Instagram Lite, coba uninstall atau buka lewat aplikasi penuh.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              child: const Text('Tutup'),
+            ),
+            TextButton(
+              onPressed: () async {
+                final appStoreUri = Platform.isIOS
+                    ? Uri.parse('https://apps.apple.com/app/instagram/id389801252')
+                    : Uri.parse('https://play.google.com/store/apps/details?id=com.instagram.android');
+                Navigator.of(ctx).pop();
+                await launchUrl(appStoreUri, mode: LaunchMode.externalApplication);
+              },
+              child: const Text('Lihat di App Store / Play Store'),
+            ),
+          ],
+        ),
       );
-
-      try {
-        await intent.launch();
-      } catch (_) {
-        await launchUrl(Uri.parse(instagramWebUrl), mode: LaunchMode.externalApplication);
-      }
-    } else if (Platform.isIOS) {
-      final appUri = Uri.parse(instagramAppUrl);
-      final webUri = Uri.parse(instagramWebUrl);
-
-      if (await canLaunchUrl(appUri)) {
-        await launchUrl(appUri, mode: LaunchMode.externalApplication);
-      } else {
-        await launchUrl(webUri, mode: LaunchMode.externalApplication);
-      }
-    } else {
-      await launchUrl(Uri.parse(instagramWebUrl), mode: LaunchMode.externalApplication);
     }
   }
 }
