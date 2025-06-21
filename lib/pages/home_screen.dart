@@ -1,8 +1,9 @@
 /***
-home_screen.dart: add instagram portofolio
+home_screen.dart: fix instagram direct
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
+
 
 
 import 'package:flutter/material.dart';
@@ -70,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                     icon: const Icon(Icons.photo_library_outlined),
                     label: const Text('Lihat Portfolio Kami'),
                     onPressed: //onPortfolioTap,
-                        () => InstagramLauncher.openInstagram(),
+                        () => InstagramLauncher.openWithSuggestion(context),
                     style: ElevatedButton.styleFrom(
                         minimumSize: const Size(double.infinity, 50)),
                   ),
@@ -130,3 +131,4 @@ void _showMeasurementGuide(BuildContext context) {
     },
   );
 }
+
