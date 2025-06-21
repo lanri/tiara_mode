@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tiara_mode/main.dart';
+import 'package:tiara_mode/pages/portfolio_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  final VoidCallback? onPortfolioTap;
 
+  const HomeScreen({super.key, this.onPortfolioTap});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,18 +16,18 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             // 💠 Tiara Mode Logo
-          Image.asset(
-            'assets/logo.png',
-            width: 120,
-            height: 120,
-          ),
+            Image.asset(
+              'assets/logo.png',
+              width: 120,
+              height: 120,
+            ),
             // Hero section with a welcoming image and message
             Container(
               height: 250,
               width: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/tiaramode_bg_comp.webp'),
+                  image: AssetImage('assets/images/tiara-mode-banner.webp'),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -56,22 +58,25 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ElevatedButton.icon(
-                      icon: const Icon(Icons.photo_library_outlined),
-                      label: const Text('Lihat Portfolio Kami'),
-                      onPressed: () { /* This would navigate, but is handled by bottom nav */ },
-                      style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
+                    icon: const Icon(Icons.photo_library_outlined),
+                    label: const Text('Lihat Portfolio Kami'),
+                    onPressed: onPortfolioTap,
+                    style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 50)),
                   ),
                   const SizedBox(height: 16),
                   OutlinedButton.icon(
-                     icon: const Icon(Icons.info_outline),
-                     label: const Text('Panduan Ukur Badan'),
-                     onPressed: () => _showMeasurementGuide(context),
-                     style: OutlinedButton.styleFrom(
-                       minimumSize: const Size(double.infinity, 50),
-                       foregroundColor: Theme.of(context).colorScheme.primary,
-                       side: BorderSide(color: Theme.of(context).colorScheme.primary),
-                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                     ),
+                    icon: const Icon(Icons.info_outline),
+                    label: const Text('Panduan Ukur Badan'),
+                    onPressed: () => _showMeasurementGuide(context),
+                    style: OutlinedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 50),
+                      foregroundColor: Theme.of(context).colorScheme.primary,
+                      side: BorderSide(
+                          color: Theme.of(context).colorScheme.primary),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                    ),
                   )
                 ],
               ),

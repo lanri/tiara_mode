@@ -91,8 +91,8 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   // List of pages to be displayed.
-  static final List<Widget> _widgetOptions = <Widget>[
-    const HomeScreen(),
+  List<Widget> _widgetOptions() =>[
+    HomeScreen(onPortfolioTap: () => _onItemTapped(1)),
     const PortfolioScreen(),
     const ServicesScreen(),
     const OrderScreen(),
@@ -108,7 +108,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions().elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
