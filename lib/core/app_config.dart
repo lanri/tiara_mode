@@ -1,8 +1,9 @@
 /***
-app_config.dart: App Config module
+app_config.dart: add read me and app config
 created by @lanri.jait@gmail.com
-last committed by @
+last committed by @lanri.jait@gmail.com
 ***/
+
 
 // lib/core/app_config.dart
 
@@ -29,7 +30,7 @@ class AppConfig {
 
   /// CONTACT & SOCIAL
   static const String whatsappNumber = '+6281370603031';
-  static const String instagramUrl = 'https://instagram.com/mode_tiara';
+  static const String instagramUserName = 'mode_tiara';
   static const String location = 'Parung Panjang';
 
   /// FEATURES TO ENABLE

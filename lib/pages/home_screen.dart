@@ -1,8 +1,9 @@
 /***
-home_screen.dart: beautify view home screen
+home_screen.dart: add read me and app config
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
+
 
 
 import 'package:tiara_mode/core/app_config.dart';
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset(
-              'assets/logo.png',
+              AppConfig.logoAssetPath,
               width: 28,
               height: 28,
             ),
@@ -35,9 +36,9 @@ class HomeScreen extends StatelessWidget {
                 style: const TextStyle(fontSize: 20),
                 children: [
                   TextSpan(
-                    text: 'Tiara Mode Kebaya',
+                    text: AppConfig.titleName,
                     style: TextStyle(
-                      fontFamily: 'Poppins',
+                      fontFamily: AppConfig.fontFamily,
                       fontWeight: FontWeight.w600,
                       color: const Color(0xFF6A5ACD), // royal purple
                     ),
@@ -114,7 +115,7 @@ class HomeScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         child: Image.asset(
-          'assets/images/tiara-mode-banner.webp',
+          AppConfig.bannerAssetPath,
           fit: BoxFit.cover,
           width: double.infinity,
         ),

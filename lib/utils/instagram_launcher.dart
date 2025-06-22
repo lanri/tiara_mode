@@ -1,16 +1,18 @@
 /***
-instagram_launcher.dart: fix instagram direct
+instagram_launcher.dart: add instagram dialog launcher
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
 
+
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:tiara_mode/core/app_config.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InstagramLauncher {
-  static const String _username = 'mode_tiara';
+  static const String _username = AppConfig.instagramUserName;
   static final Uri _webUri = Uri.parse('https://www.instagram.com/$_username/');
 
   static Future<void> openWithSuggestion(BuildContext context) async {

@@ -1,8 +1,9 @@
 /***
-order_screen.dart: number
+order_screen.dart: add read me and app config
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
+
 
 import 'package:flutter/material.dart';
 import 'package:tiara_mode/main.dart';
@@ -28,13 +29,14 @@ class _OrderScreenState extends State<OrderScreen> {
       final name = _nameController.text;
       final phone = _phoneController.text;
       final request = _requestController.text;
+      const appName = AppConfig.appName;
       
       // --- IMPORTANT ---
       // Replace with your actual WhatsApp number, including the country code (62 for Indonesia).
-      const businessWhatsAppNumber = '+6281370603031'; 
+      const businessWhatsAppNumber = AppConfig.whatsappNumber; 
 
       final message = Uri.encodeComponent(
-        'Halo Tiara Mode,\n\nSaya $name ($phone) ingin bertanya tentang:\n"$request"\n\nTerima kasih.'
+        'Halo $appName ,\n\nSaya $name ($phone) ingin bertanya tentang:\n"$request"\n\nTerima kasih.'
       );
 
       final Uri whatsappUrl = Uri.parse('https://wa.me/$businessWhatsAppNumber?text=$message');

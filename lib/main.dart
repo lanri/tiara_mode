@@ -1,8 +1,9 @@
 /***
-main.dart: add route logic and header auto
+main.dart: add read me and app config
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
+
 
 
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class TiaraModeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Tiara Mode Kebaya',
+      title: AppConfig.titleName,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // --- App Theme ---
@@ -53,7 +54,7 @@ class TiaraModeApp extends StatelessWidget {
           surface: Colors.white,
         ),
         fontFamily:
-            'Poppins', // A modern and clean font (ensure you add it to pubspec.yaml)
+            AppConfig.fontFamily, // A modern and clean font (ensure you add it to pubspec.yaml)
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           elevation: 1,
@@ -63,7 +64,7 @@ class TiaraModeApp extends StatelessWidget {
             color: Color(0xFF333333),
             fontSize: 20,
             fontWeight: FontWeight.w600,
-            fontFamily: 'Poppins',
+            fontFamily: AppConfig.fontFamily,
           ),
         ),
         textTheme: const TextTheme(
