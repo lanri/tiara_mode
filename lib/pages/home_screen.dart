@@ -1,9 +1,8 @@
 /***
-home_screen.dart: fix instagram direct
+home_screen.dart: fix function
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
-
 
 
 import 'package:flutter/material.dart';
@@ -11,6 +10,7 @@ import 'package:tiara_mode/main.dart';
 import 'package:tiara_mode/pages/portfolio_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:tiara_mode/utils/instagram_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   final VoidCallback? onPortfolioTap;
@@ -20,82 +20,109 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Tiara Mode Kebaya'),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
-            // 💠 Tiara Mode Logo
             Image.asset(
               'assets/logo.png',
-              width: 120,
-              height: 120,
+              width: 28,
+              height: 28,
             ),
-            // Hero section with a welcoming image and message
-            Container(
-              height: 250,
-              width: double.infinity,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/tiara-mode-banner.webp'),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              // child: Container(
-              //   color: Colors.black.withOpacity(0.3),
-              //   alignment: Alignment.center,
-              //   child: Text(
-              //     'Jahitan Halus, Gaya Modis',
-              //     style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white, fontSize: 28),
-              //     textAlign: TextAlign.center,
-              //   ),
-              // ),
-            ),
-            const SizedBox(height: 24),
-            // Introduction Text
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Text(
-                'Selamat datang di Tiara Mode, penjahit kepercayaan Anda di Parung Panjang. Kami menyediakan jasa jahit custom dan vermak berkualitas tinggi untuk semua kebutuhan busana Anda.',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyLarge,
+            //const SizedBox(width: 8),
+            RichText(
+              text: TextSpan(
+                style: const TextStyle(fontSize: 20),
+                children: [
+                  TextSpan(
+                    text: 'Tiara Mode Kebaya',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w600,
+                      color: const Color(0xFF6A5ACD), // royal purple
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 32),
-            // Quick navigation buttons
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          ],
+        ),
+        centerTitle: true,
+        // 👉 Add the quick navigation buttons to the bottom of AppBar
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(100),
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFFFDF8FF), // Light lavender
+                  Color.fromARGB(
+                      255, 225, 212, 243), // Slightly deeper lavender
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
               child: Column(
                 children: [
+                  const SizedBox(height: 8),
                   ElevatedButton.icon(
-                    icon: const Icon(Icons.photo_library_outlined),
-                    label: const Text('Lihat Portfolio Kami'),
-                    onPressed: //onPortfolioTap,
-                        () => InstagramLauncher.openWithSuggestion(context),
+                    icon: const FaIcon(FontAwesomeIcons.instagram),
+                    label: const Text('Lihat Portfolio Kami di Instagram'),
                     style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(double.infinity, 50)),
+                      backgroundColor:
+                          const Color(0xFFE1306C), // Instagram pink
+                      minimumSize: const Size(double.infinity, 48),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                      textStyle: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    onPressed: () =>
+                        InstagramLauncher.openWithSuggestion(context),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
                   OutlinedButton.icon(
                     icon: const Icon(Icons.info_outline),
                     label: const Text('Panduan Ukur Badan'),
                     onPressed: () => _showMeasurementGuide(context),
                     style: OutlinedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 50),
-                      foregroundColor: Theme.of(context).colorScheme.primary,
-                      side: BorderSide(
-                          color: Theme.of(context).colorScheme.primary),
+                      minimumSize: const Size(double.infinity, 40),
+                      foregroundColor: Color(0xFF6A5ACD),
+                      side: const BorderSide(color: Color(0xFF6A5ACD)),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-            const SizedBox(height: 24),
-          ],
+          ),
         ),
       ),
+      body: SingleChildScrollView(
+  child: Column(
+    children: [
+      // Your banner
+      Card(
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        elevation: 4,
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Image.asset(
+          'assets/images/tiara-mode-banner.webp',
+          fit: BoxFit.cover,
+          width: double.infinity,
+        ),
+      ),
+
+      // Other content...
+    ],
+  ),
+),
     );
   }
 }
@@ -131,4 +158,3 @@ void _showMeasurementGuide(BuildContext context) {
     },
   );
 }
-
