@@ -1,4 +1,11 @@
+/***
+services_screen.dart: refactor dart
+created by @lanri.jait@gmail.com
+last committed by @lanri.jait@gmail.com
+***/
+
 import 'package:flutter/material.dart';
+import 'package:tiara_mode/core/app_config.dart';
 
 class ServicesScreen extends StatelessWidget {
   const ServicesScreen({super.key});

@@ -1,10 +1,11 @@
 /***
-home_screen.dart: fix function
+home_screen.dart: beautify view home screen
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
 
 
+import 'package:tiara_mode/core/app_config.dart';
 import 'package:flutter/material.dart';
 import 'package:tiara_mode/main.dart';
 import 'package:tiara_mode/pages/portfolio_screen.dart';

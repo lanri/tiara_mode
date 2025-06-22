@@ -1,17 +1,46 @@
-# tiara_mode
+# 👗 Tiara Mode Kebaya
 
-A new Flutter project.
+Aplikasi Flutter untuk menampilkan jasa penjahitan **Tiara Mode** — spesialis kebaya, jahitan halus, dan layanan vermak di Parung Panjang.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📱 Tampilan Awal
 
-A few resources to get you started if this is your first Flutter project:
+- Logo dan nama brand di AppBar
+- Tombol navigasi cepat:
+  - Instagram Portfolio
+  - Panduan Ukur Badan
+- Gambar banner kebaya
+- Bottom navigation:
+  - Home
+  - Portfolio
+  - Layanan
+  - Pesan
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📁 Struktur Folder
+
+lib/
+├── pages/
+│   ├── home_screen.dart
+│   ├── portfolio_screen.dart
+│   ├── services_screen.dart
+│   └── order_screen.dart
+├── utils/
+│   └── instagram_launcher.dart
+└── main.dart
+---
+
+## TODO
+Login
+
+Form pemesanan dengan validasi
+
+Integrasi ke WhatsApp / Email
+
+Ulasan pelanggan / testimonial
+
+Feed Instagram real-time (opsional)
+
 # Deployed by GitHub Actions

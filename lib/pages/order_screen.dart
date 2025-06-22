@@ -1,6 +1,13 @@
+/***
+order_screen.dart: number
+created by @lanri.jait@gmail.com
+last committed by @lanri.jait@gmail.com
+***/
+
 import 'package:flutter/material.dart';
 import 'package:tiara_mode/main.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:tiara_mode/core/app_config.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});

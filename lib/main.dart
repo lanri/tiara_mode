@@ -1,8 +1,9 @@
 /***
-main.dart: edit bg, fix button
+main.dart: add route logic and header auto
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
+
 
 import 'package:flutter/material.dart';
 import 'package:tiara_mode/pages/home_screen.dart';
@@ -11,6 +12,7 @@ import 'package:tiara_mode/pages/portfolio_screen.dart';
 import 'package:tiara_mode/pages/services_screen.dart';
 import 'router.dart';
 import 'dart:html' as html; // for browser URL control
+import 'package:tiara_mode/core/app_config.dart';
 
 // To make this code work, you need to add the `url_launcher` package.
 // Open your `pubspec.yaml` file and add this line under `dependencies`:

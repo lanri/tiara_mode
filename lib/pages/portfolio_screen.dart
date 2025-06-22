@@ -1,4 +1,11 @@
+/***
+portfolio_screen.dart: refactor dart
+created by @lanri.jait@gmail.com
+last committed by @lanri.jait@gmail.com
+***/
+
 import 'package:flutter/material.dart';
+import 'package:tiara_mode/core/app_config.dart';
 
 class PortfolioScreen extends StatelessWidget {
   const PortfolioScreen({super.key});
