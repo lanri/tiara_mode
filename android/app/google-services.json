@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "766566884354",
+    "project_id": "tiara-mode-project",
+    "storage_bucket": "tiara-mode-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766566884354:android:1c6223c8b6d408aca9331b",
+        "android_client_info": {
+          "package_name": "com.example.tiara_mode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766566884354-nsi9cv2qu4cg7c7pmlikf1hf66l3ge9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBd3PCkOM7yGS2lASma7F-Gqy7aaCZLsvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766566884354-nsi9cv2qu4cg7c7pmlikf1hf66l3ge9o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "766566884354-mqcdubdu2l4vr11ila9eij2f3nfu4e15.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tiaraMode"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

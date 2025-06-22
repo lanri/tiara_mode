@@ -1,14 +1,12 @@
 /***
-home_screen.dart: add read me and app config
+home_screen.dart: refactor Appconfig
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
 
 
-
 import 'package:tiara_mode/core/app_config.dart';
 import 'package:flutter/material.dart';
-import 'package:tiara_mode/main.dart';
 import 'package:tiara_mode/pages/portfolio_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:tiara_mode/utils/instagram_launcher.dart';
@@ -49,9 +47,18 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.login),
+            tooltip: 'Login as Owner',
+            onPressed: () {
+              Navigator.pushNamed(context, '/login');
+            },
+          ),
+        ],
         // 👉 Add the quick navigation buttons to the bottom of AppBar
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(100),
+          preferredSize: const Size.fromHeight(120),
           child: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -104,27 +111,27 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-  child: Column(
-    children: [
-      // Your banner
-      Card(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        elevation: 4,
-        clipBehavior: Clip.antiAlias,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Image.asset(
-          AppConfig.bannerAssetPath,
-          fit: BoxFit.cover,
-          width: double.infinity,
+        child: Column(
+          children: [
+            // Your banner
+            Card(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              elevation: 4,
+              clipBehavior: Clip.antiAlias,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Image.asset(
+                AppConfig.bannerAssetPath,
+                fit: BoxFit.cover,
+                width: double.infinity,
+              ),
+            ),
+
+            // Other content...
+          ],
         ),
       ),
-
-      // Other content...
-    ],
-  ),
-),
     );
   }
 }

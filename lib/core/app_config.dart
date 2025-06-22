@@ -1,8 +1,9 @@
 /***
-app_config.dart: add read me and app config
+app_config.dart: refactor Appconfig
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
+
 
 
 // lib/core/app_config.dart
@@ -39,4 +40,7 @@ class AppConfig {
   static const bool enableOrderForm = true;
   static const bool useWhatsAppOrder = true;
   static const bool useInstagramPortfolio = true;
+
+  // ✅ Web Client ID for Google Sign-In
+  static const String googleWebClientId = '766566884354-nsi9cv2qu4cg7c7pmlikf1hf66l3ge9o.apps.googleusercontent.com'; // Ganti sesuai project
 }

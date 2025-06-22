@@ -1,34 +1,35 @@
 /***
-router.dart: Router module
+router.dart: add route logic and header auto
 created by @lanri.jait@gmail.com
-last committed by @
+last committed by @lanri.jait@gmail.com
 ***/
 
 import 'package:flutter/material.dart';
-import 'main.dart'; // for MainScreen
+import 'main.dart'; // untuk MainScreen
+import 'package:tiara_mode/auth/login_screen.dart';
+import 'package:tiara_mode/pages/dashboard_screen.dart';
 
-/// Returns a route to MainScreen with the correct tab selected based on the URL.
 Route<dynamic> generateRoute(RouteSettings settings) {
   int tabIndex = 0;
 
   switch (settings.name) {
     case '/':
       tabIndex = 0;
-      break;
+      return MaterialPageRoute(builder: (_) => MainScreen(initialIndex: tabIndex));
     case '/portfolio':
       tabIndex = 1;
-      break;
+      return MaterialPageRoute(builder: (_) => MainScreen(initialIndex: tabIndex));
     case '/services':
       tabIndex = 2;
-      break;
+      return MaterialPageRoute(builder: (_) => MainScreen(initialIndex: tabIndex));
     case '/order':
       tabIndex = 3;
-      break;
+      return MaterialPageRoute(builder: (_) => MainScreen(initialIndex: tabIndex));
+    case '/login':
+      return MaterialPageRoute(builder: (_) => const LoginScreen());
+    case '/dashboard':
+      return MaterialPageRoute(builder: (_) => const DashboardScreen());
     default:
-      tabIndex = 0;
+      return MaterialPageRoute(builder: (_) => const LoginScreen());
   }
-
-  return MaterialPageRoute(
-    builder: (_) => MainScreen(initialIndex: tabIndex),
-  );
 }

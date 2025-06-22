@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>766566884354-mqcdubdu2l4vr11ila9eij2f3nfu4e15.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.766566884354-mqcdubdu2l4vr11ila9eij2f3nfu4e15</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAjgIcDcS_tPtT1oXgBZYR7uWysWi-nKB0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>766566884354</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.tiaraMode</string>
+	<key>PROJECT_ID</key>
+	<string>tiara-mode-project</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tiara-mode-project.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:766566884354:ios:7aa105af75e2ecdda9331b</string>
+</dict>
+</plist>
