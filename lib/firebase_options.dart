@@ -1,5 +1,5 @@
 /***
-firebase_options.dart: adding login using firebase and google
+firebase_options.dart: fix potential leaks and ignore .env
 created by @lanri.jait@gmail.com
 last committed by @lanri.jait@gmail.com
 ***/
@@ -23,13 +23,13 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return FirebaseOptions(
-        apiKey: dotenv.env['API_KEY_WEB']!,
-        appId: dotenv.env['APP_ID_WEB']!,
-        messagingSenderId: dotenv.env['MSG_SENDER_ID_WEB']!,
-        projectId: dotenv.env['PROJECT_ID']!,
-        authDomain: dotenv.env['AUTH_DOMAIN'],
-        storageBucket: dotenv.env['STORAGE_BUCKET'],
+      return const FirebaseOptions(
+        apiKey: 'AIzaSyDCqWMXsRI7i0RIndRrCdz8S9g6wTYSFz8',
+        appId: '1:766566884354:web:6957862572674488a9331b',
+        messagingSenderId: '766566884354',
+        projectId: 'tiara-mode-project',
+        authDomain: 'tiara-mode-project.firebaseapp.com',
+        storageBucket: 'tiara-mode-project.appspot.com',
       );
     }
     switch (defaultTargetPlatform) {
